@@ -6,7 +6,7 @@ app.config['SECRET_KEY'] = '8c6309c14072baaa9dfcf848f8ac5d99'
 
 posts = [
     {
-        'author': 'Corey Schafer',
+        'author': 'Tom Castagnino',
         'title': 'Blog Post 1',
         'content': 'First post content',
         'date_posted': 'April 20, 2018'
@@ -19,15 +19,15 @@ posts = [
     }
 ]
 
-@app.route('/')
+@app.route('/port/blog')
 def home():
   return render_template('home.html', posts=posts)
 
-@app.route('/about')
+@app.route('/port/blog/about')
 def about():
   return render_template('about.html', title='About')
 
-@app.route('/register', methods=['GET', 'POST'])
+@app.route('/port/blog/register', methods=['GET', 'POST'])
 def register():
   form = RegistrationForm()
   if form.validate_on_submit():
@@ -35,7 +35,7 @@ def register():
     return redirect(url_for('home'))
   return render_template('register.html', title='Register', form=form)
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/port/blog/login', methods=['GET', 'POST'])
 def login():
   form = LoginForm()
   if form.validate_on_submit():
