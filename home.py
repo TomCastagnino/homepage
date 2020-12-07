@@ -19,6 +19,10 @@ posts = [
     }
 ]
 
+@app.route('/')
+def homepage():
+  return render_template('homepage.html')
+
 @app.route('/port/blog')
 def home():
   return render_template('home.html', posts=posts)
